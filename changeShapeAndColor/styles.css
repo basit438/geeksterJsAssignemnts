@@ -1,0 +1,122 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #a8c0ff, #3f2b96); /* Updated linear gradient background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Container for the controls and shape display */
+  .container {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 90%; /* Responsive width */
+    width: 400px; /* Max width */
+  }
+  
+  /* Heading styling */
+  h1 {
+    color: #333;
+    font-size: 24px; /* Responsive font size */
+    margin-bottom: 10px;
+  }
+  
+  /* Description paragraph styling */
+  p {
+    color: #555;
+    font-size: 16px; /* Responsive font size */
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for the shape element */
+  #elem {
+    width: 100%; /* Responsive width */
+    height: 200px;
+    background-color: #3498db; /* Default color */
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Default shape */
+    transition: all 0.6s ease; /* Smooth transition for shape and color changes */
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Styling for the buttons */
+  button {
+    background-color: #2ecc71;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #27ae60;
+    transform: scale(1.05);
+  }
+  
+  button:active {
+    background-color: #1e8449;
+    transform: scale(0.95);
+  }
+  
+  /* Styling for the shape name display */
+  #shape-name {
+    font-size: 20px; /* Responsive font size */
+    color: #2c3e50;
+    margin: 20px 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .container {
+      padding: 15px;
+      width: 90%;
+    }
+  
+    h1 {
+      font-size: 20px;
+    }
+  
+    p {
+      font-size: 14px;
+    }
+  
+    #shape-name {
+      font-size: 18px;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  
+  /* Optional: Add some additional animations */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  #elem {
+    animation: pulse 2s infinite;
+  }
+  
