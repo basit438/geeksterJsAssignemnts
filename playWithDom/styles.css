@@ -1,0 +1,145 @@
+body {
+    transition: background 1s, color 1s;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.light-mode {
+    color: #000;
+    background-image: url('https://c8.alamy.com/compfr/tw24a0/compte-tenu-de-l-epic-empire-state-owo-de-la-rockefeller-au-coucher-du-soleil-new-york-city-new-york-usa-tw24a0.jpg');
+}
+
+.dark-mode {
+    color: #fff;
+    background-image: url('https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-label {
+    width: 8em;
+    height: 4em;
+    background: #ccc;
+    border-radius: 2em;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-label::before {
+    content: '';
+    position: absolute;
+    width: 3.6em;
+    height: 3.6em;
+    background: #fff;
+    border-radius: 50%;
+    top: 0.2em;
+    left: 0.2em;
+    transition: transform 0.3s;
+}
+
+.toggle-input:checked + .toggle-label {
+    background: #ffcc00;
+}
+
+.toggle-input:checked + .toggle-label::before {
+    transform: translateX(4em);
+}
+
+.toggle-text {
+    margin-left: 1em;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+
+.toggle-logo {
+    position: absolute;
+    top: 0.2em;
+    left: 0.2em;
+    width: 3.6em;
+    height: 3.6em;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.toggle-input:checked + .toggle-label .toggle-logo {
+    transform: translateX(4em);
+}
+
+.content {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transition: background 1s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .toggle-label {
+        width: 6em;
+        height: 3em;
+    }
+    
+    .toggle-label::before,
+    .toggle-logo {
+        width: 2.8em;
+        height: 2.8em;
+        top: 0.1em;
+        left: 0.1em;
+    }
+    
+    .toggle-input:checked + .toggle-label::before,
+    .toggle-input:checked + .toggle-label .toggle-logo {
+        transform: translateX(3em);
+    }
+    
+    .toggle-text {
+        font-size: 1.2em;
+    }
+    
+    .batman-logo {
+        width: 8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .toggle-label {
+        width: 5em;
+        height: 2.5em;
+    }
+    
+    .toggle-label::before,
+    .toggle-logo {
+        width: 2.3em;
+        height: 2.3em;
+        top: 0.1em;
+        left: 0.1em;
+    }
+    
+    .toggle-input:checked + .toggle-label::before,
+    .toggle-input:checked + .toggle-label .toggle-logo {
+        transform: translateX(2.5em);
+    }
+    
+    .toggle-text {
+        font-size: 1em;
+    }
+    
+    .batman-logo {
+        width: 6em;
+    }
+}
