@@ -38,7 +38,7 @@ body {
 
 /* Container Styles */
 .container {
-    background-color: #fff;
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0, #c2e9fb, #e6dee9);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -231,4 +231,14 @@ label[for="bgColor"] {
         padding: 10px;
         max-width: 100%;
     }
+}
+
+
+#searchNotes {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
 }

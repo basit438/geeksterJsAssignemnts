@@ -4,6 +4,7 @@ let addBtn = document.getElementById("addNote");
 let color = document.getElementById("bgColor");
 let notesSection = document.querySelector(".notes-section");
 let placeholder = document.getElementById("placeholder");
+let searchInput = document.getElementById("searchNotes");
 
 function updatePlaceholderVisibility() {
     if (notesSection.children.length === 1) { // Only the placeholder should be there
@@ -14,33 +15,26 @@ function updatePlaceholderVisibility() {
 }
 
 addBtn.addEventListener("click", () => {
-    // Create a new note div
     let newNote = document.createElement("div");
     newNote.classList.add("newnote");
-
-    // Set the background color of the note
     newNote.style.backgroundColor = color.value;
 
-    // Add the note title
     if (noteTitle.value.trim() !== "") {
         let noteTitleElement = document.createElement("h3");
         noteTitleElement.innerText = noteTitle.value;
         newNote.appendChild(noteTitleElement);
     }
 
-    // Add the note content
     let noteContent = document.createElement("p");
     noteContent.innerText = note.value;
     newNote.appendChild(noteContent);
 
-    // Add the timestamp
     let noteDate = new Date();
     let noteTimestamp = document.createElement("span");
     noteTimestamp.classList.add("timestamp");
     noteTimestamp.innerText = noteDate.toLocaleString();
     newNote.appendChild(noteTimestamp);
 
-    // Add delete button
     let noteActions = document.createElement("div");
     noteActions.classList.add("note-actions");
 
@@ -55,15 +49,12 @@ addBtn.addEventListener("click", () => {
 
     newNote.appendChild(noteActions);
 
-    // Append the new note to the notes section
     notesSection.appendChild(newNote);
 
-    // Clear the input fields after adding the note
     noteTitle.value = "";
     note.value = "";
     color.value = "#ffef96"; // Reset color picker to default
 
-    // Update placeholder visibility
     updatePlaceholderVisibility();
 });
 
@@ -71,6 +62,23 @@ function deleteNote(note) {
     notesSection.removeChild(note);
     updatePlaceholderVisibility();
 }
+
+searchInput.addEventListener("input", () => {
+    let query = searchInput.value.toLowerCase();
+    let notes = document.querySelectorAll(".newnote");
+
+    notes.forEach(note => {
+        let title = note.querySelector("h3");
+        if (title) {
+            let titleText = title.innerText.toLowerCase();
+            if (titleText.includes(query)) {
+                note.style.display = "block";
+            } else {
+                note.style.display = "none";
+            }
+        }
+    });
+});
 
 // Initialize placeholder visibility on page load
 updatePlaceholderVisibility();
