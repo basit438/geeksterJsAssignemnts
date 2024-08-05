@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympics LeaderBoard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Olympics LeaderBoard</h1>
+        <div class="form-container">
+            <form action="" class="form">
+                <input placeholder="First Name" class="firstName" type="text">
+                <input placeholder="Last Name" class="lastName" type="text">
+                <input placeholder="Country" class="country" type="text">
+                <input placeholder="Score" class="score" type="number">
+                <button class="add">Add Person</button>
+            </form>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search by name">
+            </div>
+        </div>
+        <hr class="divider">
+        <div class="board">
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Country</th>
+                        <th>Score</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
