@@ -1,61 +1,54 @@
 let data = [];
 
-let fName = document.querySelector('.firstName');
-let lName = document.querySelector('.lastName');
-let country = document.querySelector('.country');
-let score = document.querySelector('.score');
-let addBtn = document.querySelector('.add');
-let board = document.querySelector('#leaderboard');
-let search = document.querySelector('#search');
+const fName = document.querySelector('.firstName');
+const lName = document.querySelector('.lastName');
+const country = document.querySelector('.country');
+const score = document.querySelector('.score');
+const addBtn = document.querySelector('.add');
+const board = document.querySelector('#leaderboard');
+const search = document.querySelector('#search');
 
 function updateDataOnUi() {
     let showData = "";
+    data.sort((p1, p2) => p2.score - p1.score);
+
     let filteredData = data.filter(item =>
         item.fname.toLowerCase().includes(search.value.toLowerCase()) ||
-        item.lName.toLowerCase().includes(search.value.toLowerCase())
+        item.lname.toLowerCase().includes(search.value.toLowerCase())
     );
 
-    filteredData.sort((a, b) => b.score - a.score);
-
-    filteredData.forEach(function (item, index) {
-        let rowClass = '';
-        if (index === 0) rowClass = 'top1';
-        else if (index === 1) rowClass = 'top2';
-        else if (index === 2) rowClass = 'top3';
-
-        showData += `<tr class="personData ${rowClass}">
+    filteredData.forEach((item, index) => {
+        showData += `<tr class="personData">
             <td>${item.fname}</td>
-            <td>${item.lName}</td>
+            <td>${item.lname}</td>
             <td>${item.country}</td>
             <td>${item.score}</td>
             <td>
-                <button class="plus">+5</button>
-                <button class="minus">-5</button>
-                <button class="delete">delete</button>
+                <button class="plus" data-index="${index}">+5</button>
+                <button class="minus" data-index="${index}">-5</button>
+                <button class="delete" data-index="${index}">delete</button>
             </td>
         </tr>`;
     });
     board.innerHTML = showData;
-
-    activeButtons();
 }
 
-function activeButtons() {
-    let personData = document.querySelectorAll('.personData');
-    personData.forEach(function (ele, index) {
-        ele.addEventListener('click', (e) => {
-            if (e.target.classList.contains("plus")) {
-                data[index].score = parseInt(data[index].score) + 5;
-                updateDataOnUi();
-            } else if (e.target.classList.contains("minus")) {
-                data[index].score = parseInt(data[index].score) - 5;
-                updateDataOnUi();
-            } else if (e.target.classList.contains("delete")) {
-                data.splice(index, 1);
-                updateDataOnUi();
-            }
-        });
-    });
+function handleButtonClick(e) {
+    if (e.target.tagName !== 'BUTTON') return;
+
+    const index = e.target.getAttribute('data-index');
+
+    if (index === null) return; // Ensure data-index is present
+
+    if (e.target.classList.contains('plus')) {
+        data[index].score += 5;
+    } else if (e.target.classList.contains('minus')) {
+        data[index].score -= 5;
+    } else if (e.target.classList.contains('delete')) {
+        data.splice(index, 1);
+    }
+
+    updateDataOnUi();
 }
 
 addBtn.addEventListener('click', (e) => {
@@ -63,9 +56,9 @@ addBtn.addEventListener('click', (e) => {
     if (fName.value === "" || lName.value === "" || country.value === "" || score.value === "") {
         alert("Please fill all the fields");
     } else {
-        let playerObj = {
+        const playerObj = {
             fname: fName.value,
-            lName: lName.value,
+            lname: lName.value,
             country: country.value,
             score: parseInt(score.value)
         };
@@ -79,3 +72,8 @@ addBtn.addEventListener('click', (e) => {
 });
 
 search.addEventListener('input', updateDataOnUi);
+
+board.addEventListener('click', handleButtonClick);
+
+// Initial call to render any existing data
+updateDataOnUi();
