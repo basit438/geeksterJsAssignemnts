@@ -1,0 +1,108 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #333, #555); /* Dark gradient background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Prevent body scrolling */
+    color: #ddd; /* Light text color for better contrast */
+}
+
+#container {
+    width: 90%;
+    max-width: 1200px; /* Wider container for more space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Gap between search section and emoji container */
+}
+
+#search-section {
+    background: #222; /* Dark background for the search section */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 25px;
+    width: 100%;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Light border */
+}
+
+h1 {
+    color: #eee; /* Light text color */
+    margin-bottom: 10px;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font */
+    font-size: 2.5em; /* Larger title */
+}
+
+#searchField {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #555; /* Dark border */
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #333; /* Dark background for the input */
+    color: #eee; /* Light text color */
+    transition: all 0.3s ease;
+}
+
+#searchField::placeholder {
+    color: #777; /* Light placeholder color */
+}
+
+#searchField:focus {
+    border-color: #007bff;
+    background: #444; /* Slightly lighter dark background */
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+#emoji-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+    justify-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px; /* Wider container for more emojis */
+    height: calc(100vh - 200px); /* Adjusted based on the height of your search section and gap */
+    overflow-y: auto;
+    background: #333; /* Dark background for the emoji container */
+    border-radius: 15px; /* Rounded corners */
+}
+
+#emoji-container div {
+    background-color: #444; /* Darker background for emojis */
+    border: 2px solid #555; /* Dark border */
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#emoji-container div:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+#emoji-container span {
+    font-size: 36px; /* Larger emoji size */
+    display: block;
+    transition: color 0.3s ease;
+}
+
+#emoji-container div:hover span {
+    color: #007bff; /* Change emoji color on hover */
+}
