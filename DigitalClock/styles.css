@@ -1,0 +1,108 @@
+/* style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('train-station-4803180.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Raleway', sans-serif;
+  overflow: hidden;
+  color: #fff;
+  animation: backgroundPulse 20s infinite alternate;
+}
+
+@keyframes backgroundPulse {
+  0% { background-size: 100%; }
+  100% { background-size: 110%; }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.8); /* Enhanced neon cyan glow */
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 30px;
+  color: #00ffff; /* Neon cyan color */
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.9); /* Strong neon glow */
+  letter-spacing: 2px;
+  animation: textGlow 1.5s infinite alternate;
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 20px rgba(0, 255, 255, 0.9); }
+  100% { text-shadow: 0 0 30px rgba(0, 255, 255, 1); }
+}
+
+.clock {
+  font-size: 6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.clock div {
+  padding: 25px 30px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2); /* Slightly opaque background */
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6); /* Enhanced neon cyan shadow */
+  color: #00ffff; /* Neon cyan text */
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.8); /* Neon glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.clock div:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.8); /* Enhanced hover glow */
+  background: rgba(255, 255, 255, 0.3); /* Brighter background on hover */
+}
+
+.clock div::after {
+  content: ':';
+  color: #00ffff; /* Neon cyan colon */
+  font-size: 3em;
+}
+
+.clock div:last-child::after {
+  content: ''; /* No colon after seconds */
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .clock {
+    font-size: 5em;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .clock {
+    font-size: 4em;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .clock div {
+    padding: 20px 25px;
+  }
+}
