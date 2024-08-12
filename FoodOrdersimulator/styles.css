@@ -1,0 +1,145 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Background styling */
+body {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    padding: 20px;
+    background-image: url(./pexels-chanwalrus-958545.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+/* Container styling */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #2a2a2a;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Header styling */
+h1 {
+    font-size: 3rem;
+    color: #ffd700;
+    margin-bottom: 30px;
+    font-family: 'Lobster', cursive;
+}
+
+/* Food options container */
+.food-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+/* Styled checkbox labels */
+.container label {
+    display: block;
+    width: 180px;
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 10px;
+    border: 2px solid #ffd700;
+    font-size: 1.5rem;
+    color: #ffd700;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    position: relative;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.container label:hover {
+    transform: scale(1.05);
+    background-color: #444444;
+}
+
+/* Hide default checkbox */
+.container input[type="checkbox"] {
+    display: none;
+}
+
+/* Custom checkbox styling */
+.container input[type="checkbox"] + label::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    margin: 0 auto 10px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+/* Checked state */
+.container input[type="checkbox"]:checked + label::before {
+    background-color: #ffd700;
+}
+
+/* Loader styling */
+.loader {
+    display: none;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.loader img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Output and order styling */
+.output {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 10px;
+    border: 2px solid #ffd700;
+    text-align: center;
+}
+
+.output img {
+    max-width: 150px;
+    margin-top: 20px;
+}
+
+.output h3 {
+    font-size: 2rem;
+    color: #ffd700;
+}
+
+/* Button styling */
+.order-btn {
+    padding: 15px 40px;
+    margin-top: 20px;
+    background-color: #ffd700;
+    color: #333333;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.order-btn:hover {
+    background-color: #ffcc00;
+}
+
+/* Error message styling */
+.error {
+    color: red;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}

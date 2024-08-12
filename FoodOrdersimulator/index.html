@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Food Order Simulator</h1>
+
+        <div class="food-options">
+            <input id="burger" class="burger" type="checkbox" value="Burger">
+            <label for="burger">Burger</label>
+
+            <input id="pizza" class="pizza" type="checkbox" value="Pizza">
+            <label for="pizza">Pizza</label>
+
+            <input id="fries" class="fries" type="checkbox" value="Fries">
+            <label for="fries">Fries</label>
+        </div>
+
+        <div class="loader"></div>
+        <div class="output"></div>
+        <button class="order-btn">Place Order</button>
+        <div class="error"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
