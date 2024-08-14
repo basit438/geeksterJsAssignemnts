@@ -1,15 +1,14 @@
 
-import config from "./config.js";
 
 let input = document.querySelector("#search-box");
 let searchBtn = document.querySelector("#search-btn");
 let resultDiv = document.querySelector('#result-images');
 let imagesToShow =6;
-
+let apiKey = 'CAwfAmsL2kyfOyOjpqWUJQ85VjOVuv2C7WtzJJLDWcl4kLmwuDO5cZOL';
 const getImages = async () => {
     let query = input.value;
     let resp = await fetch(`https://api.pexels.com/v1/search?query=${query}`, {
-        headers: { Authorization: config.apiKey}
+        headers: { Authorization: apiKey}
     });
 
     let data = await resp.json();
