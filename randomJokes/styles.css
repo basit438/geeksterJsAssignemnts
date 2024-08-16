@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@300&display=swap');
+
+body {
+    font-family: 'Fredoka One', cursive;
+    background-color: #f0f8ff;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff5ee;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    border: 3px solid #87cefa;
+    transition: transform 0.2s ease-in-out;
+    font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ff6347;
+    text-shadow: 1px 1px #ffa07a;
+}
+
+#joke-div {
+    font-size: 22px;
+    line-height: 1.8;
+    background-color: #fffacd;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: inset 0 0 10px #f5deb3;
+    border: 2px dashed #ff8c00;
+    position: relative;
+}
+
+#joke-div::before {
+    content: "🤣";
+    font-size: 50px;
+    position: absolute;
+    top: -35px;
+    right: -30px;
+    transform: rotate(-10deg);
+}
+
+#joke-div:hover {
+    background-color: #fff8dc;
+    color: #ff4500;
+    transform: scale(1.05);
+    border-color: #ff6347;
+}
+
+.btn {
+    background-color: #87cefa;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-shadow: 1px 1px #000;
+    box-shadow: 0 8px #4682b4;
+}
+
+.btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px #4682b4;
+}
+
+.btn:hover {
+    background-color: #4682b4;
+}
