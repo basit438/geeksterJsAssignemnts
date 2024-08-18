@@ -1,0 +1,206 @@
+/* Reset some basic styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #f9f1f1;
+}
+
+/* General page styling */
+body {
+    background-color: #1d2735;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #1d2735;
+}
+
+/* Navigation bar styling */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1d2735;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #fffefe;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.hero .images {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 60px;
+    background-color: #1d2735;
+}
+
+.iphone {
+    transform: scale(1.3);
+}
+
+.hero img {
+    width: 200px;
+    height: auto;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.hero img:hover {
+    transform: scale(1.05);
+}
+
+.hero button {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero button:hover {
+    background-color: #0056b3;
+}
+
+h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007BFF;
+}
+
+#searchBox {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin: 0 auto 20px auto;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#searchBtn {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin: 0 auto 20px auto;
+    font-size: 16px;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#searchBtn:hover {
+    background-color: #218838;
+}
+
+/* Result cards styling */
+#result {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    
+    text-align: center;
+    transition: transform 0.3s ease;
+    height: 40vh;
+    width: 18vw;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-position: center;
+    object-fit: contain;
+    border-bottom: 1px solid #ccc;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin: 15px 0;
+    color: #333;
+}
+
+.card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* View All Button styling */
+.view-all-btn {
+   height: 30px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.view-all-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #result {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    #result {
+        grid-template-columns: 1fr;
+    }
+}
