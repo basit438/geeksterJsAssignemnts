@@ -22,11 +22,13 @@ body {
 /* Navigation bar styling */
 .nav {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
     color: white;
 }
+
 
 .hero {
     display: flex;
@@ -158,12 +160,12 @@ h1 {
 
 .card h3 {
     font-size: 20px;
-    margin: 15px 0;
+    margin: 10px 0;
     color: #333;
 }
 
 .card p {
-    font-size: 14px;
+    font-size: 18px;
     color: #666;
     margin-bottom: 15px;
 }
@@ -175,6 +177,7 @@ h1 {
 /* View All Button styling */
 .view-all-btn {
    height: 30px;
+   width: 100px;
     font-size: 16px;
     color: #fff;
     background-color: #007BFF;
@@ -185,7 +188,9 @@ h1 {
     margin-top: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;    
+    justify-content: center; 
+    align-self: center;   
+    margin-left: 150%;
 }
 
 .view-all-btn:hover {

@@ -43,7 +43,7 @@ let displayResults = function(data) {
                 <div class="card">
                     <img src="${element.image}" alt="">
                     <h3>${element.phone_name}</h3>
-                    <p>${element.slug}</p>
+                    <p class ="slug">${element.slug}</p>
                 </div>
                 `;
                 results.appendChild(div);
