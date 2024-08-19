@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Cards</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+   
+    <style>
+      @font-face {
+        font-family: 'PokemonSolid';
+        src: url('path_to_your_font/pokemon-solid.ttf') format('truetype');
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="static-div">
+        <h1>Pokemon Cards</h1>
+        <input id="search" placeholder="search by name" type="text" />
+        
+        <button id="search-btn">Search by Name</button>
+        <select id="byType">
+            <option value="">All Types</option>
+            <option value="fire">Fire</option>
+            <option value="water">Water</option>
+            <option value="grass">Grass</option>
+            <option value="electric">Electric</option>
+            <option value="psychic">Psychic</option>
+            <option value="fighting">Fighting</option>
+            <option value="fairy">Fairy</option>
+            <option value="ghost">Ghost</option>
+            <option value="dark">Dark</option>
+            <option value="bug">Bug</option>
+            <option value="normal">Normal</option>
+            <option value="ground">Ground</option>
+            <option value="rock">Rock</option>
+            <option value="poison">Poison</option>
+            <option value="dragon">Dragon</option>
+            <option value="ice">Ice</option>
+            <option value="flying">Flying</option>
+            <option value="steel">Steel</option>
+        </select>
+        <button id="btn-typeFilter">Filter By Type</button>
+
+        <button id="reset">Reset</button>
+        <img src="energy.gif" alt="Pikachu" class="static-image">
+        <img src="pika.gif" alt="Pokemon Animation" class="static-gif">
+      </div>
+
+      <div class="dynamic-div">
+        <!-- All cards will be shown here -->
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
