@@ -1,0 +1,112 @@
+body {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    background: linear-gradient(to right, #f76b1c, #fad961);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background: linear-gradient(to right, #f76b1c, #fad961);
+    }
+    50% {
+        background: linear-gradient(to right, #fad961, #f76b1c);
+    }
+}
+
+.container {
+    background-color: #ffffffcc;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    animation: bounceIn 2s ease;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #ff5e62;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px #ffffff;
+    animation: textGlow 3s ease infinite;
+}
+
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 2px 2px #ffffff, 4px 4px #ff5e62;
+    }
+    50% {
+        text-shadow: 2px 2px #ff5e62, 4px 4px #ffffff;
+    }
+}
+
+.field {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fad961;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.field:hover {
+    transform: scale(1.05) rotate(-1deg);
+}
+
+.label {
+    font-weight: bold;
+    color: #f76b1c;
+    flex: 1;
+    text-align: left;
+}
+
+#user-info span {
+    flex: 2;
+    color: #333;
+    text-align: left;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+#user-info span::after {
+    content: "✎";
+    padding-left: 5px;
+    font-size: 1em;
+    color: #f76b1c;
+    animation: textBlink 1s infinite;
+}
+
+@keyframes textBlink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
