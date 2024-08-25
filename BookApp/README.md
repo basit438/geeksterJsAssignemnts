@@ -25,9 +25,8 @@ Check out the live version of the project [here](https://basit438.github.io/geek
 
 - `index.html`: The main HTML file that structures the content of the web application.
 - `styles.css`: The main CSS file that handles the styling of the web application.
-- `books.css`: An additional CSS file for specific styles related to the book section.
 - `script.js`: The main JavaScript file that adds interactivity to the web application.
-- `books.js`: An additional JavaScript file for handling book-related functionality.
+
 
 ## How to Run
 
