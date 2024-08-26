@@ -3,79 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Location</title>
+    <title>Access User Media</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
             color: #333;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px;
         }
         .container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
             text-align: center;
         }
         h1 {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: #007bff;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
         }
         button {
-            padding: 10px 20px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
             background-color: #007bff;
-            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            transition: background-color 0.3s ease;
         }
         button:hover {
             background-color: #0056b3;
         }
-        .location-info {
-            margin-top: 20px;
+        .output {
+            text-align: left;
+        }
+        .output p {
+            margin: 5px 0;
             font-size: 16px;
         }
-        .error-message {
-            color: red;
+        .output .error {
+            color: #ff4d4d;
+        }
+        video {
+            width: 100%;
+            max-height: 300px;
+            border-radius: 10px;
+            margin-top: 15px;
+            background-color: #000;
+        }
+        @media (min-width: 600px) {
+            .buttons {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            button {
+                flex: 1;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>Find Your Location</h1>
-        <button onclick="getuserLocation()">Get Location</button>
-        <div class="location-info" id="locationInfo"></div>
+        <h1>User Media Access</h1>
+        <div class="buttons">
+            <button onclick="getUserLocation()">Get Location</button>
+            <button onclick="getCameraAccess()">Access Camera</button>
+            <button onclick="getMicrophoneAccess()">Access Microphone</button>
+        </div>
+        <div class="output" id="output"></div>
+        <video id="video" autoplay playsinline></video>
     </div>
 
     <script>
-        const successCall = (location) => {
-            const latitude = location.coords.latitude;
-            const longitude = location.coords.longitude;
-            const accuracy = location.coords.accuracy;
-            
-            document.getElementById('locationInfo').innerHTML = `
-                <p>Latitude: ${latitude}</p>
-                <p>Longitude: ${longitude}</p>
-                <p>Accuracy: ${accuracy} meters</p>
-            `;
+        // Get references to DOM elements
+        const output = document.getElementById('output');
+        const videoElement = document.getElementById('video');
+
+        // Function to get user's location
+        const getUserLocation = () => {
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    position => {
+                        const { latitude, longitude, accuracy } = position.coords;
+                        output.innerHTML = `
+                            <p><strong>Location Access Granted:</strong></p>
+                            <p>Latitude: ${latitude.toFixed(4)}</p>
+                            <p>Longitude: ${longitude.toFixed(4)}</p>
+                            <p>Accuracy: ${accuracy} meters</p>
+                        `;
+                    },
+                    error => {
+                        output.innerHTML = `<p class="error"><strong>Error:</strong> ${error.message}</p>`;
+                    }
+                );
+            } else {
+                output.innerHTML = `<p class="error">Geolocation is not supported by your browser.</p>`;
+            }
         };
 
-        const errorCall = (error) => {
-            document.getElementById('locationInfo').innerHTML = `
-                <p class="error-message">Error: ${error.message}</p>
-            `;
+        // Function to get camera access
+        const getCameraAccess = () => {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(stream => {
+                        videoElement.srcObject = stream;
+                        output.innerHTML = `<p><strong>Camera Access Granted:</strong> Streaming video...</p>`;
+                    })
+                    .catch(error => {
+                        output.innerHTML = `<p class="error"><strong>Camera Error:</strong> ${error.message}</p>`;
+                    });
+            } else {
+                output.innerHTML = `<p class="error">Camera access is not supported by your browser.</p>`;
+            }
         };
 
-        const getuserLocation = () => {
-            window.navigator.geolocation.getCurrentPosition(successCall, errorCall);
+        // Function to get microphone access
+        const getMicrophoneAccess = () => {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ audio: true })
+                    .then(stream => {
+                        output.innerHTML = `<p><strong>Microphone Access Granted:</strong> Microphone is active.</p>`;
+                      
+                        stream.getAudioTracks().forEach(track => track.stop());
+                    })
+                    .catch(error => {
+                        output.innerHTML = `<p class="error"><strong>Microphone Error:</strong> ${error.message}</p>`;
+                    });
+            } else {
+                output.innerHTML = `<p class="error">Microphone access is not supported by your browser.</p>`;
+            }
         };
     </script>
+
 </body>
 </html>
