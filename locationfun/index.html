@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Location</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .location-info {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Find Your Location</h1>
+        <button onclick="getuserLocation()">Get Location</button>
+        <div class="location-info" id="locationInfo"></div>
+    </div>
+
+    <script>
+        const successCall = (location) => {
+            const latitude = location.coords.latitude;
+            const longitude = location.coords.longitude;
+            const accuracy = location.coords.accuracy;
+            
+            document.getElementById('locationInfo').innerHTML = `
+                <p>Latitude: ${latitude}</p>
+                <p>Longitude: ${longitude}</p>
+                <p>Accuracy: ${accuracy} meters</p>
+            `;
+        };
+
+        const errorCall = (error) => {
+            document.getElementById('locationInfo').innerHTML = `
+                <p class="error-message">Error: ${error.message}</p>
+            `;
+        };
+
+        const getuserLocation = () => {
+            window.navigator.geolocation.getCurrentPosition(successCall, errorCall);
+        };
+    </script>
+</body>
+</html>
