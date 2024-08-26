@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Data Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        canvas {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 90%; max-height: 95%; margin: 2rem auto;">
+        <canvas id="liveChart"></canvas>
+    </div>
+
+    <script>
+        const canvasElement = document.getElementById('liveChart').getContext('2d');
+
+        const initialChartData = {
+            labels: [],
+            datasets: [{
+                label: 'Random Data',
+                data: [],
+                borderColor: 'rgba(254, 162, 235, 1)',
+                borderWidth: 3,
+                fill: false,
+            }],
+        };
+
+        const chartOptions = {
+            type: 'line',
+            data: initialChartData,
+            options: {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                        title: {
+                            display: true,
+                            text: 'Time (s)',
+                        },
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Value',
+                        },
+                    },
+                },
+                animation: true,
+            },
+        };
+
+        const liveChart = new Chart(canvasElement, chartOptions);
+
+        function generateRandomData() {
+            const randomValue = Math.random() * 100;
+            liveChart.data.labels.push(liveChart.data.labels.length);
+            liveChart.data.datasets[0].data.push(randomValue);
+            liveChart.update();
+        }
+
+        setInterval(generateRandomData, 1000);
+    </script>
+</body>
+</html>
